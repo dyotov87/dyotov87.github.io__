@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 
 import { KeycloakAngularModule, KeycloakService } from 'keycloak-angular';
 import { initializeKeycloak } from '../app/utility/app.init';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,10 @@ import { initializeKeycloak } from '../app/utility/app.init';
       useFactory: initializeKeycloak,
       multi: true,
       deps: [KeycloakService],
-    },
+    },{
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+      }
   ],
   bootstrap: [AppComponent]
 })
