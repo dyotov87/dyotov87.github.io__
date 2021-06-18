@@ -21,7 +21,7 @@ export class EditProfileComponent implements OnInit {
   }
 
   logout(): void {
-    this.keycloakService.logout('https://auth.eu.yuuvis.io/auth/');
+    this.keycloakService.logout('https://eu.yuuvis.io/tenant?logout');
   }
 
 }
