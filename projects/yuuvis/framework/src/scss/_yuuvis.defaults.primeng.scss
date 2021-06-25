@@ -1,0 +1,626 @@
+@import './../../../../../src/scss-shared/_vars';
+
+body {
+  .yuv-catalog {
+    .p-disabled {
+      opacity: 0.8;
+
+      .p-dropdown-trigger-icon,
+      .p-multiselect-trigger-icon {
+        opacity: 0.4;
+      }
+    }
+
+    .p-dropdown {
+      background: transparent;
+      border: 0;
+      width: 100%;
+
+      .p-dropdown-label {
+        white-space: normal;
+      }
+      .p-dropdown-clear-icon {
+        color: var(--text-color-caption);
+      }
+      .p-dropdown-trigger {
+        color: var(--text-color-caption);
+        background-color: transparent;
+      }
+    }
+
+    .p-dropdown-label-container {
+      min-height: 1em;
+    }
+
+    .p-inputtext {
+      background-color: transparent;
+      color: var(--text-color-body);
+    }
+
+    .p-dropdown:not(.p-disabled).p-focus {
+      box-shadow: none;
+    }
+
+    .p-dropdown-panel {
+      background-color: var(--panel-background);
+      border-color: var(--panel-divider-color);
+
+      .p-dropdown-items .p-dropdown-item {
+        color: var(--text-color-body);
+        padding: calc(var(--app-pane-padding) / 4) calc(var(--app-pane-padding) / 2);
+
+        &.p-highlight {
+          background-color: var(--color-accent);
+          color: #fff;
+        }
+
+        &:not(.p-highlight):not(.p-disabled):hover {
+          color: var(--text-color-body);
+          background-color: var(--item-focus-background-color);
+        }
+      }
+
+      .p-dropdown-filter-container {
+        padding: calc(var(--app-pane-padding) / 2);
+
+        .p-dropdown-filter-icon {
+          right: calc(var(--app-pane-padding) / 2);
+          color: var(--color-accent);
+        }
+      }
+    }
+
+    // multiselect component
+    .p-multiselect {
+      background: transparent;
+      border: 0;
+      width: 100%;
+
+      &:not(.p-disabled).p-focus {
+        box-shadow: none;
+      }
+      .p-multiselect-label {
+        padding: 0 24px 0 0;
+        color: var(--text-color-body);
+      }
+
+      .p-multiselect-label-container {
+        min-height: 1em;
+      }
+
+      .p-multiselect-trigger {
+        color: var(--text-color-caption);
+        background-color: transparent;
+      }
+      .p-multiselect-panel {
+        .p-multiselect-header {
+          display: flex;
+          align-items: center;
+
+          .p-multiselect-filter-container {
+            flex: 1;
+            margin-right: 1em;
+          }
+        }
+
+        // select all checkbox
+        .p-checkbox {
+          .p-checkbox-box.p-highlight {
+            background-color: transparent;
+            color: var(--text-color-caption);
+            border-color: var(--text-color-caption);
+          }
+        }
+
+        .p-multiselect-items {
+          .p-multiselect-item {
+            .p-checkbox {
+              .p-checkbox-box.p-highlight {
+                background-color: transparent;
+                color: #fff;
+                border-color: #fff;
+              }
+            }
+
+            &.p-highlight:focus {
+              outline-color: #fff;
+            }
+
+            &:focus {
+              box-shadow: none;
+              outline: 1px solid var(--color-accent);
+              outline-offset: -2px;
+            }
+          }
+        }
+      }
+      .p-multiselect-label {
+        display: flex;
+        flex-flow: row wrap;
+      }
+    }
+  }
+
+  .p-inputtext {
+    color: var(--text-color-body);
+    font-size: var(--font-body);
+
+    &:enabled:focus:not(.p-error) {
+      border-color: var(--color-accent);
+      box-shadow: none;
+    }
+  }
+
+  .p-component {
+    font-family: 'Roboto';
+    font-size: var(--font-body);
+  }
+
+  // -------------------------------------------------------------------
+  // primeng autocomplete
+  .p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item {
+    color: var(--text-color-body);
+
+    &.p-highlight {
+      background: var(--item-selected-background-color);
+    }
+
+    &:hover {
+      background: var(--item-focus-background-color);
+      color: var(--text-color-body);
+    }
+  }
+  .p-autocomplete {
+    &.p-autocomplete-multiple {
+      width: 100%;
+      .p-autocomplete-multiple-container {
+        padding: 0;
+        background-color: transparent;
+
+        &.p-disabled {
+          opacity: 0.85;
+        }
+
+        &:not(.p-disabled).p-focus {
+          box-shadow: none;
+        }
+
+        .p-autocomplete-input-token input {
+          font-size: var(--font-body);
+          color: var(--text-color-body);
+        }
+
+        // the actual chip
+        .p-autocomplete-token {
+          line-height: 1.5em;
+          border-radius: 2px;
+          background: var(--item-focus-background-color);
+          border: 1px solid var(--item-focus-border-color);
+          padding: 0 3px;
+          color: var(--text-color-caption);
+
+          .p-autocomplete-token-label {
+            margin-right: 24px;
+            &.noAccess {
+              color: var(--color-error);
+              cursor: not-allowed;
+            }
+          }
+        }
+      }
+    }
+  }
+  .p-autocomplete-panel {
+    background-color: var(--panel-background);
+    border: 1px solid var(--panel-divider-color);
+    box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.15);
+    border-radius: 0;
+
+    .p-autocomplete-items {
+      .p-autocomplete-list-item {
+        color: var(--text-color-body);
+
+        &.p-highlight {
+          color: var(--text-color-body);
+          background-color: var(--item-selected-background-color);
+
+          a {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // -------------------------------------------------------------------
+  // primeng multiselect
+  .p-multiselect {
+    background: var(--panel-background-grey);
+    border: 1px solid transparent;
+
+    &:not(.p-disabled):hover {
+      border-color: var(--panel-divider-color);
+    }
+
+    .p-multiselect-panel {
+      background-color: var(--panel-background);
+      border: 1px solid var(--panel-divider-color);
+
+      .p-multiselect-header {
+        border-radius: 0;
+        background-color: var(--panel-background);
+        border-color: var(--panel-divider-color);
+
+        .p-multiselect-filter-container {
+          .p-multiselect-filter-icon {
+            color: var(--text-color-hint);
+          }
+
+          .p-inputtext {
+            background-color: transparent;
+            border-radius: 0;
+          }
+        }
+      }
+
+      .p-multiselect-items .p-multiselect-item {
+        color: var(--text-color-body);
+
+        &.p-highlight {
+          background-color: var(--color-accent);
+          color: #fff;
+        }
+
+        &:not(.p-highlight):not(.p-disabled):hover {
+          color: var(--text-color-body);
+          background-color: var(--item-focus-background-color);
+        }
+      }
+    }
+  }
+
+  // -------------------------------------------------------------------
+  // primeng accordion
+  .p-accordion {
+    // section head
+    .p-accordion-header {
+      margin: 0;
+      outline: 0;
+      a {
+        outline: 0;
+        color: var(--text-color-body);
+        border: 1px solid var(--panel-background-grey);
+        background: var(--panel-background-grey);
+        display: flex;
+
+        &:focus {
+          border-color: var(--color-accent);
+          box-shadow: inset 0 0px 0 1px var(--panel-background);
+        }
+
+        .p-accordion-toggle-icon {
+          order: 2;
+          color: var(--text-color-caption);
+        }
+        .p-accordion-header-text {
+          flex: 1;
+          font-weight: normal;
+          color: var(--text-color-body);
+        }
+      }
+      &:not(.p-highlight):not(.p-disabled):hover a {
+        background-color: var(--main-background);
+        color: var(--text-color-body);
+        border-color: transparent;
+
+        .p-accordion-toggle-icon {
+          color: var(--text-color-caption);
+        }
+      }
+
+      // accordion open
+      &:not(.p-disabled).p-highlight a {
+        background-color: var(--panel-background-grey);
+        color: var(--text-color-body);
+        border: 1px solid var(--panel-background-grey);
+
+        &:focus {
+          border-color: var(--color-accent);
+        }
+
+        .p-accordion-toggle-icon {
+          color: var(--text-color-caption);
+        }
+      }
+      // accordion open hover
+      &:not(.p-disabled).p-highlight:hover a {
+        border: 1px solid var(--panel-background-grey);
+        background-color: var(--panel-background-grey);
+        color: var(--text-color-body);
+
+        .p-accordion-toggle-icon {
+          color: var(--text-color-caption);
+        }
+      }
+    }
+
+    .p-accordion-content {
+      border: 1px solid var(--panel-background-grey);
+      border-top: 0;
+      background-color: var(--panel-background);
+      color: var(--text-color-body);
+      padding: var(--app-pane-padding);
+    }
+  }
+
+  // -------------------------------------------------------------------
+  // primeng overlays
+  // body .p-overlaypanel:before
+  .p-overlaypanel {
+    border: none;
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    .p-overlaypanel-content {
+      padding: 0;
+    }
+  }
+
+  .p-dialog {
+    .p-dialog-content {
+      padding: 0;
+      border: 0;
+    }
+  }
+
+  // TODO: add styling for small screen dialogs here
+  // &.screen-s .p-dialog {
+  //   top: 0 !important;
+  //   height: 100vh !important;
+  //   width: 100vw !important;
+  // }
+
+  // -------------------------------------------------------------------
+  // primeng chips
+  // body .p-chips > ul.p-inputtext .p-chips-input-token input
+  .p-chips {
+    width: 100%;
+    > ul.p-inputtext {
+      padding: 0;
+
+      &.p-focus {
+        box-shadow: none !important;
+      }
+
+      &.p-disabled {
+        opacity: 1;
+      }
+
+      .p-chips-input-token input {
+        font-family: 'Roboto';
+        font-size: var(--font-body);
+        color: var(--text-color-body);
+        min-height: 21px; // to match chips height and avoid height changes when entering the first value
+      }
+
+      .p-chips-token {
+        font-size: var(--font-caption);
+        padding: 2px;
+        margin: 2px 2px 0 0;
+        background: var(--item-focus-background-color);
+        color: var(--text-color-caption);
+        border: 1px solid var(--item-focus-background-color);
+      }
+    }
+  }
+
+  .p-multiselect {
+    min-height: 20px; // to match chips height and avoid height changes when entering the first value
+    min-width: 150px;
+  }
+
+  // -------------------------------------------------------------------
+  // primeng tabs
+  $p-tabs-border-size: 4px;
+  .p-tabview.p-component {
+    padding: 0;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 'nav' 'panel';
+
+    .p-tabview-title {
+      padding: calc(var(--app-pane-padding) / 8) calc(var(--app-pane-padding) / 4);
+      border-radius: $p-tabs-border-size;
+    }
+
+    .p-tabview-nav {
+      margin-bottom: 1px;
+      border-radius: 0;
+      grid-area: nav;
+
+      li {
+        border-color: transparent;
+        border-width: 0 0 $p-tabs-border-size 0;
+        border-style: solid;
+        background-color: transparent;
+        outline: 0;
+        transition: border-color 200ms ease-in-out;
+
+        a {
+          padding: calc(var(--app-pane-padding) / 2) var(--app-pane-padding);
+          font-weight: normal;
+          color: var(--text-color-caption);
+          background: transparent !important;
+          border-width: 0 !important;
+          &:focus {
+            box-shadow: none !important;
+          }
+        }
+
+        &:focus {
+          box-shadow: none;
+        }
+
+        // active tab style
+        &.p-highlight {
+          background-color: transparent;
+          border-color: var(--color-accent);
+          border-width: 0 0 $p-tabs-border-size 0;
+
+          &:hover {
+            background-color: transparent;
+            border-width: 0 0 $p-tabs-border-size 0;
+            border-color: var(--color-accent);
+            a {
+              color: var(--text-color-body);
+            }
+          }
+
+          a {
+            color: var(--text-color-body);
+          }
+        }
+
+        a:focus,
+        &:focus {
+          .p-tabview-title {
+            background-color: var(--panel-divider-color);
+          }
+        }
+
+        // hover/focus state for inactive tabs
+        &:not(.p-highlight):not(.p-disabled) {
+          &:hover {
+            border-color: var(--panel-divider-color);
+            border-width: 0 0 $p-tabs-border-size 0;
+            background-color: transparent;
+
+            a {
+              color: var(--text-color-caption);
+            }
+          }
+        }
+
+        .p-tabview-close {
+          color: var(--text-color-caption) !important;
+          font-size: 10px;
+          font-weight: bold;
+        }
+      }
+    }
+
+    .p-tabview-panels {
+      grid-area: panel;
+      border-width: 1px 0 0 0;
+      border-color: var(--panel-divider-color);
+      color: var(--text-color-body);
+      padding: 0;
+    }
+  }
+
+  // -------------------------------------------------------------------
+  // primeng checkbox
+  $p-checkbox-border-color: var(--text-color-body);
+  $p-checkbox-background-color: var(--panel-divider-color);
+
+  .p-checkbox {
+    margin: 0;
+    width: 1em;
+    height: 1em;
+    font-size: 20px;
+
+    .p-checkbox-box {
+      background-color: $p-checkbox-background-color;
+      width: 100%;
+      height: 100%;
+      outline: 0;
+      border-radius: 0;
+      line-height: 16px;
+      border: 2px solid transparent;
+      color: var(--text-color-caption);
+
+      .p-checkbox-icon {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.7em;
+        font-weight: bold;
+        color: inherit;
+
+        &.pi-times::before {
+          // hide the 'x' for false state
+          content: '';
+        }
+      }
+      .fa {
+        transition: none;
+      }
+      .fa-close {
+        display: none;
+      }
+
+      // active
+      &.p-highlight {
+        background-color: $p-checkbox-background-color;
+        color: $p-checkbox-border-color;
+        border-color: $p-checkbox-border-color;
+
+        &:not(.p-disabled):hover {
+          border-color: $p-checkbox-border-color;
+          background-color: $p-checkbox-background-color;
+          color: $p-checkbox-border-color;
+        }
+      }
+
+      &:not(.p-disabled):hover {
+        border-color: transparent;
+      }
+
+      // focused state
+      &.p-focus {
+        box-shadow: none !important;
+        border-color: var(--color-accent) !important;
+        background-color: $p-checkbox-background-color;
+
+        // focus while also active
+        &.p-highlight {
+          background-color: $p-checkbox-background-color;
+          color: var(--color-accent);
+          border-color: var(--color-accent);
+        }
+      }
+    }
+  }
+  // // darkmode overrides
+  // .dark {
+  //   .p-checkbox .p-checkbox-box {
+  //     background-color: $p-checkbox-background-color-dark;
+
+  //     &.p-highlight {
+  //       background-color: $p-checkbox-background-color-dark;
+  //       color: $p-checkbox-border-color-dark;
+  //       border-color: $p-checkbox-border-color-dark;
+
+  //       &:not(.p-disabled):hover {
+  //         border-color: $p-checkbox-border-color-dark;
+  //         background-color: $p-checkbox-background-color-dark;
+  //         color: $p-checkbox-border-color-dark;
+  //       }
+  //     }
+  //     &.p-focus.p-highlight {
+  //       background-color: $p-checkbox-background-color-dark;
+  //     }
+  //   }
+  // }
+
+  // -------------------------------------------------------------------
+}

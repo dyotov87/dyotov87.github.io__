@@ -1,0 +1,173 @@
+{
+  "configVersion": 1,
+  "timestamp": 1624612869085,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "index",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/index.html"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "app",
+      "installMode": "lazy",
+      "updateMode": "lazy",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/favicon.ico",
+        "/main-es2015.9529e33141f2f17e0a28.js",
+        "/main-es5.9529e33141f2f17e0a28.js",
+        "/polyfills-es2015.a93358e1cf8813cb4159.js",
+        "/polyfills-es5.5b47328a61228d373ab8.js",
+        "/runtime-es2015.a1ac991fc00ebf39524f.js",
+        "/runtime-es5.a1ac991fc00ebf39524f.js",
+        "/styles.07025ef0620488b3fecd.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/assets/about.config.json",
+        "/assets/about.data.json",
+        "/assets/cordova-patch.js",
+        "/assets/default/config/main.json",
+        "/assets/default/i18n/de.json",
+        "/assets/default/i18n/en.json",
+        "/assets/default/svg/svg.ts",
+        "/assets/default/theme/app.icon.svg",
+        "/assets/default/theme/bgr-dashboard.dark.jpg",
+        "/assets/default/theme/bgr-dashboard.jpg",
+        "/assets/default/theme/bgr_sidebar.jpg",
+        "/assets/default/theme/bgr_sidebar.png",
+        "/assets/default/theme/logo.svg",
+        "/assets/default/theme/splash.svg",
+        "/assets/default/theme/theme.css",
+        "/assets/icons/icon-128x128.png",
+        "/assets/icons/icon-144x144.png",
+        "/assets/icons/icon-152x152.png",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-384x384.png",
+        "/assets/icons/icon-512x512.png",
+        "/assets/icons/icon-72x72.png",
+        "/assets/icons/icon-96x96.png",
+        "/bgr_sidebar.f36b932a3b12e313a157.png",
+        "/color.6441e63a57ccc5105bad.png",
+        "/hue.f8505bd4d6f3e3aa435b.png",
+        "/manifest.json",
+        "/password-meter.eea288d50533d7995ec1.png",
+        "/primeicons.42a056b9cc42634d97e2.woff",
+        "/primeicons.8ba12f803b137699ee74.svg",
+        "/primeicons.9868d68fa1bf5f4b6119.eot",
+        "/primeicons.e78e6d8e7dfc3a27e7ee.ttf"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "user",
+      "patterns": [
+        "\\/api-web\\/user\\/settings",
+        "\\/api-web\\/user\\/whoami"
+      ],
+      "strategy": "freshness",
+      "maxSize": 10,
+      "maxAge": 300000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    },
+    {
+      "name": "schema",
+      "patterns": [
+        "\\/api-web\\/resources\\/text",
+        "\\/api\\/dms\\/schema"
+      ],
+      "strategy": "freshness",
+      "maxSize": 10,
+      "maxAge": 300000,
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "version": 1
+    }
+  ],
+  "hashTable": {
+    "/assets/about.config.json": "69c793e5a3bd96c611848dd9f5d631fa192e9cf8",
+    "/assets/about.data.json": "af471fd7f18756c0e81e14cffd0ca8030cf980ce",
+    "/assets/cordova-patch.js": "7a607e27a86e246af6ba9426f2adc6765965dd31",
+    "/assets/default/config/main.json": "53338b395e4b005f614fbf54ab8c312a2a96dbca",
+    "/assets/default/i18n/de.json": "c18430605e8cb6e9c4b56c4b0b0895898e0c554b",
+    "/assets/default/i18n/en.json": "3cdc128a2f983aaac8e4dd495fbb085ac857dfba",
+    "/assets/default/svg/svg.ts": "c8fc3a326c3cbdd77b429bd2197571784023d9a4",
+    "/assets/default/theme/app.icon.svg": "288c1d11de6846d5d90850cbe7ec954aa2e627da",
+    "/assets/default/theme/bgr-dashboard.dark.jpg": "fc6c96283c8d03e2eea2f1146e8a73ec99391b56",
+    "/assets/default/theme/bgr-dashboard.jpg": "45ae92cc3848b59d29ecb9f017d36955b37903d8",
+    "/assets/default/theme/bgr_sidebar.jpg": "85b50435c62280ebc68114d9027dc0e21c03c6d6",
+    "/assets/default/theme/bgr_sidebar.png": "d8ffb6fe8880ee3ba68b76e99633d66d8e831cb6",
+    "/assets/default/theme/logo.svg": "9857dff38c398ff3d0217fddc70bedcff8e2056b",
+    "/assets/default/theme/splash.svg": "58bf264bb81bf68f62c4959b59b82c4b57c70222",
+    "/assets/default/theme/theme.css": "dce71e68735ca4f27801a2417176095a67163b67",
+    "/assets/icons/icon-128x128.png": "e3c3ecbfe060a896ad7056bb2032da38ce7905f3",
+    "/assets/icons/icon-144x144.png": "7b09ab4383d1747d06e42a96cf47051d1bb803ca",
+    "/assets/icons/icon-152x152.png": "b7c49ca5141c6523ee967bc5d949cec6c7edf791",
+    "/assets/icons/icon-192x192.png": "effd3b24f5e85bd41e7e12e606fe2e26ff9b1897",
+    "/assets/icons/icon-384x384.png": "76c616cc0fa2704ad1f8d8c9888c52fee6eb215d",
+    "/assets/icons/icon-512x512.png": "d12097df671a5f035c8dd6ffbd8fd2fbd01a9d9a",
+    "/assets/icons/icon-72x72.png": "2b13b12a859ac6a64f2cfa506cb8ded8ec8ad13a",
+    "/assets/icons/icon-96x96.png": "26354dd9f315e9da4346f9e7aca226f634b23edb",
+    "/bgr_sidebar.f36b932a3b12e313a157.png": "d8ffb6fe8880ee3ba68b76e99633d66d8e831cb6",
+    "/color.6441e63a57ccc5105bad.png": "ff4c4bcb2207891b292f544edb4da9d2df5d45cf",
+    "/favicon.ico": "c330fc7d208697a5d95c3576b1d2a8537426cf0d",
+    "/hue.f8505bd4d6f3e3aa435b.png": "f81ae627637a684614aa726e206c73ce099a01fd",
+    "/index.html": "653d89a06fb9af1044cb034563b421cdd3128e1d",
+    "/main-es2015.9529e33141f2f17e0a28.js": "944fe9687a95c16b9cc025fc3084684092c3fc94",
+    "/main-es5.9529e33141f2f17e0a28.js": "c59a37518360d682acd444d15859ae03c207d50c",
+    "/manifest.json": "eba4a7c025fefa68aaf3f34148260016232dd759",
+    "/password-meter.eea288d50533d7995ec1.png": "e0e101bd2a1cbda41398b48a4ab1792d89cb7334",
+    "/polyfills-es2015.a93358e1cf8813cb4159.js": "65c537467564ee0ba776b629f71ed3413413a7cb",
+    "/polyfills-es5.5b47328a61228d373ab8.js": "258e5fa7f4d1129bccae55f460e2588c1863f659",
+    "/primeicons.42a056b9cc42634d97e2.woff": "bad75c38218870acb430dcddedd31bf56406fce8",
+    "/primeicons.8ba12f803b137699ee74.svg": "28f5a43e920774603ad0d952d8162a9d78c2076c",
+    "/primeicons.9868d68fa1bf5f4b6119.eot": "7fad97172f0d641c050e2c12599716a6384a46cb",
+    "/primeicons.e78e6d8e7dfc3a27e7ee.ttf": "49de863c7cf9ca820ed12f97a1c8af5da53615fa",
+    "/runtime-es2015.a1ac991fc00ebf39524f.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/runtime-es5.a1ac991fc00ebf39524f.js": "a9aafcf49f49145093fc831efd9b8e2f6c71bb9c",
+    "/styles.07025ef0620488b3fecd.css": "12cf72cd87ebfe38bfddd000cee79f56121a9cf9"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}

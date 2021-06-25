@@ -1,0 +1,76 @@
+:host {
+  ::ng-deep {
+    .p-autocomplete-token-label {
+      display: flex;
+      align-items: center;
+      user-select: text;
+      .label {
+        padding: 0 calc(var(--app-pane-padding) / 4);
+      }
+    }
+  }
+}
+
+.yuv-string {
+  font-family: 'Roboto';
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+
+  .classify {
+    color: var(--text-color-hint);
+    a {
+      color: var(--text-color-hint);
+      display: block;
+      border-radius: 2px;
+
+      &:hover,
+      &:focus {
+        background-color: var(--color-accent);
+        color: #fff;
+      }
+    }
+
+    yuv-icon {
+      width: 18px;
+      height: 18px;
+      padding: calc(var(--app-pane-padding) / 8);
+    }
+  }
+
+  .input-textarea {
+    border: 0;
+    width: 100%;
+    resize: vertical;
+    background-color: transparent;
+    color: var(--text-color-body);
+  }
+
+  p-chips {
+    width: 100%;
+
+    &.invalid {
+      li:nth-last-child(2) {
+        color: var(--color-error) !important;
+        border-color: var(--color-error) !important;
+
+        .dark & {
+          background-color: var(--color-error) !important;
+          border-color: var(--color-error) !important;
+          color: white !important;
+        }
+      }
+    }
+  }
+
+  .p-inputtext,
+  input {
+    padding: 0;
+    border: 0 !important;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+  }
+}

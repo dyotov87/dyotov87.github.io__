@@ -1,0 +1,101 @@
+.ag-theme-yuv {
+  font-size: var(--font-body);
+  background-color: transparent;
+  color: var(--text-color-body);
+
+  .ag-root-wrapper {
+    border: 0;
+    background-color: transparent;
+  }
+
+  .ag-header {
+    // background-color: var(--panel-background-grey);
+    background-color: var(--panel-background);
+    border-bottom: 1px solid var(--panel-divider-color);
+  }
+
+  .ag-header-cell,
+  .ag-header-icon {
+    color: var(--text-color-caption);
+
+    .ag-cell-label-container {
+      padding: 0 calc(var(--app-pane-padding) / 2);
+    }
+  }
+  .ag-row {
+    border-color: var(--panel-divider-color);
+    color: var(--text-color-body);
+
+    &.ag-row-odd:not(.ag-row-selected),
+    &.ag-row-even:not(.ag-row-selected) {
+      background-color: transparent;
+    }
+
+    svg {
+      fill: currentColor;
+      width: 24px;
+      height: 24px;
+      opacity: 0.54;
+
+      &.checkbox .null {
+        opacity: 0.4;
+      }
+    }
+  }
+
+  .ag-row-odd {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .ag-row-hover {
+    background-color: var(--panel-background-lighgrey);
+  }
+  .ag-row-selected {
+    background-color: var(--item-selected-background-color);
+  }
+
+  .ag-cell {
+    padding: 0 var(--app-pane-padding);
+    display: flex;
+    align-items: center;
+    border: 1px solid transparent;
+
+    &.ag-cell-last-left-pinned:not(.ag-cell-range-right):not(.ag-cell-range-single-cell) {
+      border-right-color: var(--panel-divider-color);
+    }
+
+    &.ag-cell-focus {
+      background-color: var(--item-focus-background-color);
+      outline: 0 !important;
+      border-color: transparent !important;
+    }
+
+    &.res-ico,
+    &.col-boolean {
+      justify-content: center;
+    }
+    &.col-decimal,
+    &.col-integer {
+      justify-content: flex-end;
+    }
+  }
+}
+
+// some styles for the cell renderers
+table.cellrenderer-tags {
+  border-collapse: collapse;
+  background: var(--item-focus-background-color);
+  border: 1px solid var(--item-focus-border-color);
+  color: var(--text-color-caption);
+
+  tr:not(:last-child) td {
+    border-bottom: 1px solid var(--item-focus-border-color);
+  }
+  td {
+    padding: 2px 4px;
+    font-size: var(--font-hint);
+    &.tag {
+      color: var(--text-color-body);
+    }
+  }
+}

@@ -1,0 +1,95 @@
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+
+  ::ng-deep {
+    yuv-panel .header {
+      .header_title,
+      .header_description {
+        user-select: text;
+      }
+    }
+
+    .p-tabview .p-tabview-panels {
+      background-color: var(--panel-background-grey);
+
+      #indexdata > .p-tabview-panel {
+        overflow: hidden;
+
+        .object-form-edit {
+          height: 100%;
+          background: transparent;
+
+          yuv-object-form {
+            padding: var(--app-pane-padding);
+            background: transparent;
+
+            .yuv-object-form {
+              background: var(--panel-background);
+              box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+            }
+          }
+
+          yuv-combined-object-form {
+            padding: var(--app-pane-padding);
+
+            .yuv-combined-object-form {
+              padding: calc(var(--app-pane-padding) / 2);
+              background: var(--panel-background);
+              box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+
+              .yuv-object-form {
+                padding: calc(var(--app-pane-padding) / 2);
+                box-shadow: none;
+                margin: 0;
+
+                .form-element-wrap {
+                  padding: 0;
+                }
+              }
+            }
+          }
+
+          .form-controls {
+            border-top: 1px solid var(--panel-divider-color);
+            background: var(--panel-background);
+            animation: yuvFadeInUp 200ms;
+            &.disabled {
+              display: none;
+            }
+
+            .buttons {
+              padding: calc(var(--app-pane-padding) / 2) var(--app-pane-padding);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.yuv-object-details {
+  .actions,
+  .status,
+  .header-icon {
+    opacity: 54;
+  }
+
+  .finalized-icon {
+    color: var(--color-success);
+  }
+
+  .p-tabview .p-tabview-panels {
+    background-color: var(--panel-background-grey);
+  }
+  yuv-responsive-tab-container.content {
+    background-color: var(--panel-background);
+  }
+
+  yuv-object-form-edit {
+    // margin: var(--app-pane-padding);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    height: 100%;
+  }
+}

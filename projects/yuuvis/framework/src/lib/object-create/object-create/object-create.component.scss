@@ -1,0 +1,407 @@
+@import '../../../../../../../src/scss-shared/_mixins';
+
+:host {
+  height: 100%;
+
+  .pending-afo {
+    .afo {
+      background-color: var(--panel-background);
+      border-bottom: 1px solid var(--panel-divider-color);
+      word-break: break-all;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      padding: var(--app-pane-padding);
+
+      &:not(.current):hover {
+        background-color: var(--item-focus-background-color);
+      }
+
+      &.current {
+        background-color: var(--item-selected-background-color);
+      }
+    }
+  }
+
+  .yuv-object-create {
+    // grid-area: main;
+    overflow-y: auto;
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto 1fr auto;
+    grid-template-areas: 'header' 'context' 'steps' 'footer';
+    background-color: var(--panel-background-grey);
+
+    header {
+      grid-area: header;
+      background-color: var(--panel-background);
+      position: relative;
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      padding-top: var(--app-pane-padding);
+      overflow-y: hidden;
+      overflow-x: auto;
+
+      h1 {
+        font-size: var(--font-headline);
+        margin: 0 var(--app-pane-padding);
+        font-weight: normal;
+        color: var(--text-color-caption);
+        white-space: nowrap;
+      }
+
+      .breadcrumb {
+        display: flex;
+        align-items: center;
+        padding: calc(var(--app-pane-padding) / 4) var(--app-pane-padding);
+
+        > div {
+          color: var(--text-color-caption);
+          span {
+            cursor: pointer;
+            // border-radius: 4px;
+            white-space: nowrap;
+          }
+          &:not(:last-child):after {
+            content: '\00BB';
+            font-weight: bold;
+            padding: 0 4px;
+          }
+          &.current span {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            font-weight: var(--font-weight-bold);
+          }
+          &.disabled {
+            cursor: default;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+
+    section.status-indicator {
+      grid-area: context;
+      background-color: var(--panel-background);
+      padding: calc(var(--app-pane-padding) / 2) var(--app-pane-padding);
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid var(--panel-divider-color);
+
+      > div {
+        background-color: rgba(255, 255, 255, 0.2);
+        display: flex;
+        flex-flow: row-reverse;
+        align-items: center;
+        border-radius: 4px;
+        background-color: rgba(var(--color-accent-rgb), 0.2);
+        color: var(--color-accent);
+        padding: 0 calc(var(--app-pane-padding) / 2);
+        @include bidi-style(margin-right, calc(var(--app-pane-padding) / 4), margin-left, calc(var(--app-pane-padding) / 4));
+        z-index: 1;
+        animation: status-item-pulse 1s 1;
+        animation-delay: 500ms;
+        yuv-icon {
+          padding: calc(var(--app-pane-padding) / 4);
+          box-sizing: border-box;
+          cursor: pointer;
+          @include bidi-style(margin-left, calc(var(--app-pane-padding) / 2), margin-right, calc(var(--app-pane-padding) / 2));
+        }
+      }
+    }
+
+    .step {
+      position: relative;
+      grid-area: steps;
+      overflow-y: auto;
+
+      h1 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        @include ellipsis();
+        font-size: 5em;
+        margin: 0;
+        padding: var(--app-pane-padding);
+        opacity: 0.1;
+        color: var(--text-color-caption);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      > div {
+        z-index: 1;
+      }
+
+      &.select {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        justify-self: stretch;
+
+        .screen-s & {
+          justify-content: stretch;
+        }
+
+        .select-container {
+          display: flex;
+          flex-flow: row wrap;
+          align-items: flex-start;
+          padding: var(--app-pane-padding);
+
+          .screen-s & {
+            flex-flow: column;
+            align-items: stretch;
+            padding: calc(var(--app-pane-padding) / 2);
+          }
+        }
+
+        .type-select-list {
+          background-color: var(--panel-background);
+          margin: calc(var(--app-pane-padding) / 2);
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+
+          h2 {
+            margin: 0;
+            color: var(--color-accent);
+            padding: calc(var(--app-pane-padding) / 2) calc(var(--app-pane-padding) * 2);
+          }
+
+          .object-type {
+            color: var(--text-color-body);
+            padding: calc(var(--app-pane-padding) / 2) calc(var(--app-pane-padding) * 2);
+            border-top: 1px solid var(--panel-divider-color);
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+
+            > div {
+              opacity: 0.54;
+              font-size: var(--font-hint);
+              font-style: italic;
+              margin-top: calc(var(--app-pane-padding) / 4);
+            }
+
+            &.selected,
+            &:hover {
+              background-color: var(--color-accent);
+              color: #fff;
+            }
+          }
+        }
+
+        .content-select {
+          .not-supported {
+            color: var(--text-color-body);
+          }
+        }
+
+        .content-select-list {
+          margin: var(--app-pane-padding);
+          background-color: var(--panel-background);
+          box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+          z-index: 1;
+
+          .files {
+            overflow-y: auto;
+          }
+          .file {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--panel-divider-color);
+            padding: calc(var(--app-pane-padding) / 2);
+
+            .name {
+              flex: 1;
+              color: var(--text-color-body);
+              padding: 0 calc(var(--app-pane-padding) / 2);
+            }
+            yuv-icon {
+              width: 18px;
+              height: 18px;
+              color: var(--text-color-hint);
+            }
+          }
+
+          .buttons {
+            display: flex;
+            justify-content: flex-end;
+            @include gap(4px);
+            padding: calc(var(--app-pane-padding) / 2);
+          }
+        }
+      }
+
+      &.form {
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        justify-self: stretch;
+      }
+
+      &.afo-indexdata {
+        padding: calc(var(--app-pane-padding) / 2);
+
+        > as-split {
+          grid-area: main;
+        }
+        ::ng-deep {
+          as-split {
+            .preview-split {
+              background-color: var(--panel-background);
+
+              .as-split-gutter-icon {
+                position: relative;
+                &::before {
+                  content: '';
+                  width: 0px;
+                  position: absolute;
+                  height: 100%;
+                  border-right: 1px solid var(--panel-divider-color);
+                }
+              }
+            }
+          }
+        }
+
+        // list of available floating SOTs
+        .floating-sots {
+          background-color: var(--panel-background);
+          height: 100%;
+          overflow-y: auto;
+
+          h2 {
+            padding: calc(var(--app-pane-padding) / 2);
+            margin: 0 0 var(--app-pane-padding) 0;
+            color: var(--text-color-caption);
+          }
+
+          .item {
+            border-top: 1px solid var(--panel-divider-color);
+            word-break: break-all;
+            cursor: pointer;
+            padding: calc(var(--app-pane-padding) / 2);
+
+            &:hover {
+              background-color: var(--item-focus-background-color);
+            }
+            &.selected {
+              background-color: var(--item-selected-background-color);
+            }
+          }
+        }
+        .floating-sot-form {
+          background-color: var(--panel-background);
+          height: auto;
+
+          .header {
+            padding: calc(var(--app-pane-padding) / 2);
+            display: flex;
+            align-items: center;
+            color: var(--text-color-caption);
+            border-bottom: 1px solid var(--panel-divider-color);
+
+            yuv-icon {
+              width: 18px;
+              height: 18px;
+            }
+            span {
+              padding: 0 calc(var(--app-pane-padding) / 2);
+            }
+          }
+          .form {
+            overflow-y: auto;
+            padding: calc(var(--app-pane-padding) / 2);
+          }
+
+          &::ng-deep {
+            .container.oneCoulmn {
+              padding: 0;
+            }
+          }
+        }
+        .preview-split {
+          .objects {
+            .item {
+              word-break: break-all;
+              cursor: pointer;
+              padding: calc(var(--app-pane-padding) / 2);
+              &.current {
+                color: var(--color-accent);
+              }
+            }
+          }
+          .preview {
+            height: 100%;
+          }
+        }
+      }
+
+      &.afo-upload {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .box {
+          background-color: var(--panel-background);
+          max-width: 300px;
+
+          p {
+            margin: 0;
+            padding: var(--app-pane-padding);
+            line-height: 1.7em;
+          }
+
+          yuv-form-input {
+            display: block;
+            padding: 0 var(--app-pane-padding);
+          }
+
+          .actions {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--app-pane-padding);
+          }
+        }
+      }
+    }
+
+    yuv-object-form {
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+      margin: var(--app-pane-padding);
+      max-width: 800px;
+      min-width: 400px;
+    }
+
+    footer {
+      border-top: 1px solid var(--panel-divider-color);
+
+      grid-area: footer;
+      position: relative;
+      background-color: var(--panel-background);
+      padding: var(--app-pane-padding);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      yuv-form-input {
+        margin: 0 var(--app-pane-padding);
+      }
+
+      button.secondary {
+        margin: 0 4px;
+      }
+    }
+  }
+}
+
+@keyframes status-item-pulse {
+  50% {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+}

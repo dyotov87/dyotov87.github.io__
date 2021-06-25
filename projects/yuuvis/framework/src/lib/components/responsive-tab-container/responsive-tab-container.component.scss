@@ -1,0 +1,124 @@
+@import './../../../../../../../src/scss-shared/_mixins';
+
+.as-split-area {
+  position: relative;
+  .as-dragging &::after {
+    content: '';
+    @include frame(0);
+  }
+}
+
+:host {
+  as-split {
+    padding: 0;
+    as-split-area.secondary {
+      ::ng-deep {
+        .p-tabview.p-component .p-tabview-nav {
+          margin-right: 0;
+          li.p-highlight {
+            border-color: var(--panel-divider-color);
+          }
+        }
+      }
+    }
+  }
+
+  p-tabview {
+    position: relative;
+    display: block;
+    height: 100%;
+    overflow: hidden;
+
+    &.noSplit {
+      .tab-navigation {
+        display: none;
+      }
+      ::ng-deep {
+        .p-tabview .p-tabview-nav {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .tab-navigation {
+      position: absolute;
+      top: 1px;
+      right: 1px;
+      display: flex;
+      cursor: pointer;
+      color: var(--text-color-hint);
+
+      &:hover {
+        color: var(--text-color-caption);
+      }
+
+      yuv-icon {
+        width: 24px;
+        height: 24px;
+        padding: 7px;
+        box-sizing: content-box;
+      }
+    }
+  }
+
+  // p-tabview.yuv-split-tab::ng-deep > .p-tabview > .p-tabview-panels > p-tabpanel > .p-tabview-panel {
+  //   @include frame(0);
+  //   top: 39px; // header height
+  // }
+}
+
+::ng-deep p-tabview.yrt-tab {
+  & > .p-tabview {
+    border-radius: 0 !important;
+    & > .p-tabview-nav {
+      flex-wrap: nowrap;
+      overflow: auto hidden;
+      display: flex;
+      margin-right: 28px;
+      :host-context(.screen-s) & {
+        margin-right: 0;
+      }
+
+      li.p-disabled {
+        display: none;
+      }
+    }
+
+    & > .p-tabview-panels > p-tabpanel > .p-tabview-panel {
+      @include frame(0);
+      top: 39px; // header height
+    }
+  }
+
+  :host-context(.screen-s) .p-tabview.p-tabview-bottom .p-tabview-nav {
+    margin-top: -35px;
+  }
+
+  .p-tabview-nav::-webkit-scrollbar {
+    height: 0;
+  }
+
+  .p-tabview-panels {
+    height: 100%;
+    overflow: auto;
+    border: none;
+    border-top: 1px solid #c8c8c8;
+  }
+
+  &.split-tab-view p-tabpanel[id] > .p-tabview-panel {
+    .p-tabview {
+      padding: 0;
+      height: 100%;
+    }
+
+    // hide first empty/fake tab panel
+    &:first-child {
+      display: none !important;
+    }
+
+    // display original tab panel (disabled by mainTabView)
+    &[hidden] {
+      display: block !important;
+    }
+  }
+}

@@ -1,0 +1,178 @@
+body {
+  a,
+  a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
+
+// basic styles for cdk-drag-drop
+.cdk-drag-preview {
+  display: none;
+}
+.cdk-drop-list-dragging .cdk-drag {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+.cdk-drag-animating {
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.yuvFileDropOverlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: yuvFadeIn 200ms;
+  pointer-events: none;
+  z-index: 12;
+  background-color: rgba(var(--color-accent-rgb), 0.4);
+
+  > div {
+    background-color: var(--color-accent);
+    border: 2px solid #fff;
+    padding: 4px 8px;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    color: #fff;
+  }
+
+  &.highlight {
+    z-index: 11;
+    background-color: rgba(255, 255, 255, 0.4);
+    // border: 2px dotted rgba(var(--color-accent-rgb), 0.8);
+    // box-shadow: 0 0 0 1px #fff inset;
+    outline: 2px dotted var(--color-accent);
+    // outline: 1px solid #fff;
+    outline-offset: -3px;
+    // box-sizing: border-box;
+
+    .dark & {
+      background-color: rgba(var(--color-primary-rgb), 0.5);
+    }
+  }
+}
+
+.chip {
+  display: inline-block;
+  line-height: 1.5em;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  background: var(--item-focus-background-color);
+  border: 1px solid var(--item-focus-border-color);
+  padding: 0 3px;
+  color: var(--text-color-caption);
+  margin: 1px 0;
+  margin-right: 2px;
+
+  // primary SOT chip
+  &.psot {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  &.ref {
+    display: flex;
+    align-items: center;
+    a {
+      margin-right: calc(var(--app-pane-padding) / 4);
+      display: flex;
+      align-items: center;
+      svg {
+        height: 20px;
+        width: 20px;
+        fill: var(--color-accent);
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+.button {
+  &.refresh-button,
+  &.actions-button {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  &.close {
+    padding: 0;
+    &:hover {
+      background: var(--item-focus-background-color);
+    }
+  }
+}
+
+.icon {
+  &.light svg {
+    fill: white;
+  }
+}
+
+// default styles to be applied to anything that goes to a states content-section
+.state-content-default {
+  padding: var(--app-pane-padding);
+  box-sizing: border-box;
+  height: 100%;
+  display: block;
+
+  .screen-s & {
+    padding: 0;
+  }
+}
+
+.yuv-busy-overlay {
+  position: absolute;
+  transition: opacity 200ms;
+  opacity: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  z-index: 5;
+  justify-content: center;
+
+  // dark mode
+  .dark & {
+    background-color: rgba(var(--color-primary-rgb), 0.85);
+  }
+}
+
+// popover service
+.cdk-overlay-pane {
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.15);
+}
+
+.yuv-dialog {
+  padding: var(--app-pane-padding);
+  > .title {
+    font-size: var(--font-subhead);
+    margin-bottom: 1em;
+  }
+  > .message {
+    margin-bottom: 1em;
+  }
+  > .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: var(--app-pane-padding) -2px 0 -2px;
+
+    button {
+      margin: 0 2px;
+    }
+  }
+}

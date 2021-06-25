@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "paths": {
+      "@yuuvis/core": ["dist/yuuvis/core"],
+      "@yuuvis/core/*": ["dist/yuuvis/core/*"],
+      "@yuuvis/framework": ["dist/yuuvis/framework"],
+      "@yuuvis/framework/*": ["dist/yuuvis/framework/*"]
+    }
+  },
+  "include": ["src/**/*.d.ts"]
+}

@@ -1,0 +1,8 @@
+<div class="testing-controls">
+  <div class="buttons">
+    <button (click)="setQuery()">Set Query</button>
+  </div>
+</div>
+
+<yuv-search-result-panel class="cmp" [query]="query" (itemsSelected)="onItemsSelected($event)">
+</yuv-search-result-panel>

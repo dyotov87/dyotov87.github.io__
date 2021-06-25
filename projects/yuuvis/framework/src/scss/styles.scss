@@ -1,0 +1,54 @@
+@import '~@ag-grid-community/core/dist/styles/ag-grid.css';
+@import '~@ag-grid-community/core/dist/styles/ag-theme-balham.css';
+
+@import '~@yuuvis/styles/yuuvis.min.css';
+@import '~@yuuvis/styles/yuuvis-theme-dark.min.css';
+@import '~@angular/cdk/overlay-prebuilt.css';
+
+@import '~primeng/resources/primeng.min.css';
+@import '~primeicons/primeicons.css';
+@import '~primeng/resources/themes/nova/theme.css';
+
+@import './general';
+@import './grid';
+@import './animations';
+@import './notifications';
+@import './src/scss-shared/_vars';
+@import './src/scss-shared/_mixins';
+@import './libs';
+@import './yuuvis.defaults.primeng';
+
+body.rtl * {
+  direction: rtl;
+}
+* {
+  font-family: 'Roboto';
+  font-size: var(--font-body);
+}
+
+:focus {
+  outline-color: var(--color-accent);
+}
+
+/* Text selection background */
+::selection {
+  background: rgba(var(--color-accent-rgb), 0.2); /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: rgba(var(--color-accent-rgb), 0.2); /* Gecko Browsers */
+}
+
+body {
+  // disable selection of ui components text
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(var(--color-accent-rgb), 0.2);
+}
+
+.panel {
+  height: 100%;
+  border: 1px solid var(--panel-divider-color);
+}
+
+svg .accent {
+  fill: var(--color-accent);
+}

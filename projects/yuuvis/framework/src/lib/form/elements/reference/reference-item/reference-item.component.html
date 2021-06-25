@@ -1,0 +1,8 @@
+<yuv-object-type-icon [objectTypeId]="item?.objectTypeId"></yuv-object-type-icon>
+
+<div class="title">{{item.title}}</div>
+<div class="desc">{{item.description}}</div>
+
+<div class="details" (click)="detailsClicked($event)">
+    <ng-content></ng-content>
+</div>

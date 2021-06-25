@@ -1,0 +1,23 @@
+<yuv-responsive-master-slave class="state" (slaveClosed)="onSlaveClosed()" [slaveActive]="dmsObject || compare"
+  [layoutOptionsKey]="layoutOptionsKey">
+  <yuv-version-list class="yuv-master panel" #versionList [objectID]="dmsObjectID" [versions]="versions"
+    (editRecentClick)="onEditRecentClick($event)" (selectionChange)="versionSelected($event)"
+    [layoutOptionsKey]="layoutOptionsKey">
+  </yuv-version-list>
+
+  <div class="yuv-slave panel">
+
+    <yuv-object-details-compare *ngIf="compare; else tplSingle" [objectCompareInput]="compare"
+      [layoutOptionsKey]="layoutOptionsKey + '.changes'" [plugins]="pluginsCompare">
+    </yuv-object-details-compare>
+
+
+    <ng-template #tplSingle>
+      <div class="version">{{dmsObject?.version}}</div>
+      <yuv-object-details [disableFileDrop]="true" [dmsObject]="dmsObject" [plugins]="plugins"
+        [panelOrder]="['summary', 'indexdata', 'preview']" [layoutOptionsKey]="layoutOptionsKey">
+      </yuv-object-details>
+    </ng-template>
+
+  </div>
+</yuv-responsive-master-slave>

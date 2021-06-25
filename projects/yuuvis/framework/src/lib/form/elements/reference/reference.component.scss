@@ -1,0 +1,42 @@
+:host {
+  display: flex;
+  align-items: center;
+
+  ::ng-deep {
+    .p-autocomplete-token {
+      display: flex;
+      align-items: center;
+      .link {
+        margin-right: calc(var(--app-pane-padding) / 4);
+        height: 20px;
+        width: 20px;
+        svg {
+          height: 20px;
+          width: 20px;
+          fill: var(--text-color-caption);
+        }
+      }
+    }
+  }
+
+  &.inputDisabled {
+    ::ng-deep {
+      .p-autocomplete-multiple-container.p-inputtext {
+        cursor: default;
+      }
+      .p-autocomplete-input-token {
+        display: none !important;
+      }
+    }
+  }
+
+  p-autocomplete {
+    flex: 1;
+  }
+  yuv-icon.classify {
+    width: 18px;
+    height: 18px;
+    padding: calc(var(--app-pane-padding) / 8);
+    color: var(--text-color-hint);
+  }
+}

@@ -1,0 +1,36 @@
+<input *ngIf="(!rows || rows <= 1) && !multiselect" type="text" pInputText (blur)="onBlur()" [readonly]="readonly"
+  [(ngModel)]="value" (ngModelChange)="onValueChange($event)" />
+
+<!-- single line input with multiselect-->
+<p-chips *ngIf="(!rows || rows <= 1) && multiselect" [addOnTab]="true" [(ngModel)]="value" [disabled]="readonly"
+  [max]="maxEntryCountIfInvalid" (onBlur)="onBlur()" [addOnBlur]="true" (ngModelChange)="onValueChange($event)"
+  [ngClass]="{ invalid: validationErrors.length}">
+
+  <ng-template let-item pTemplate="item">
+    <span class="p-autocomplete-token-label">
+      <div *ngIf="classify && !validationErrors.length" class="classify inchip">
+        <a href="{{classify.hrefPrefix + item}}">
+          <yuv-icon [icon]="classify.icon"></yuv-icon>
+        </a>
+      </div>
+      <div class="label">
+        {{item}}
+      </div>
+    </span>
+  </ng-template>
+</p-chips>
+
+<!-- multi line text inputs -->
+<textarea class="input-textarea" pInputTextarea *ngIf="rows && rows > 1" (blur)="onBlur()" [(ngModel)]="value"
+  [rows]="rows" [readonly]="readonly" (ngModelChange)="onValueChange($event)"></textarea>
+
+<div *ngIf="classify" class="classify">
+  <a href="{{classify.hrefPrefix + formatedValue}}"
+    *ngIf="value && !validationErrors.length && (classify.hrefPrefix !== '' || !multiselect || value.length <= 1); else tplNoValue">
+    <yuv-icon [icon]="classify.icon"></yuv-icon>
+  </a>
+</div>
+
+<ng-template #tplNoValue>
+  <yuv-icon [icon]="classify.icon"></yuv-icon>
+</ng-template>

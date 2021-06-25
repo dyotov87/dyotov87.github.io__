@@ -1,0 +1,12 @@
+<div class="testing-controls">
+  <div>
+    <div class="label">
+      Context
+    </div>
+    <yuv-dms-object-picker defaultId="55e18e64-3e63-4144-bf12-0d5d0bda42bf" (dmsObject)="setContext($event)">
+    </yuv-dms-object-picker>
+  </div>
+  <!-- <button (click)="setContext('55e18e64-3e63-4144-bf12-0d5d0bda42bf')">set context</button> -->
+</div>
+
+<yuv-object-create class="cmp" [contextId]="contextId" (contextRemoved)="onContextRemoved()"></yuv-object-create>

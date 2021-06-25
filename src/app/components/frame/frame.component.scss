@@ -1,0 +1,407 @@
+@import '../../../../src/scss-shared/_mixins';
+$user-panel-width: 180px;
+$pwa-update-width: 200px;
+$app-bar-zindex: 6;
+$app-bar-icon: 32px;
+
+:host {
+  overflow: hidden;
+  @include frame(0);
+
+  .pwa-update {
+    position: absolute;
+    width: $pwa-update-width;
+    top: calc(var(--app-pane-padding) / 2);
+    left: calc(50% - #{$pwa-update-width / 2});
+    z-index: $app-bar-zindex + 1;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-accent);
+    color: #fff;
+    animation: yuvFadeInDown 200ms;
+    padding: 2px;
+    border-radius: 2px;
+    span {
+      padding: 0 calc(var(--app-pane-padding) / 2);
+      flex: 1;
+    }
+    yuv-icon.close {
+      box-sizing: border-box;
+    }
+  }
+
+  .app-bar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: $app-bar-zindex;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: calc((var(--app-bar-height) - #{$app-bar-icon}) / 4);
+    color: var(--text-color-caption);
+    background-color: var(--app-bar-background);
+    border-bottom: 1px solid var(--panel-divider-color);
+
+    .pwa-update {
+      display: flex;
+      align-items: center;
+      background-color: var(--color-accent);
+      color: #fff;
+      animation: yuvFadeInDown 200ms;
+      padding: 2px;
+      border-radius: 2px;
+      span {
+        padding: 0 calc(var(--app-pane-padding) / 2);
+      }
+      yuv-icon.close {
+        box-sizing: border-box;
+      }
+    }
+
+    yuv-icon#drawer {
+      padding: calc(((var(--app-bar-height) - 24px) / 2) - ((var(--app-bar-height) - #{$app-bar-icon}) / 4));
+    }
+
+    a#logo {
+      color: currentColor;
+      margin: 0 calc(var(--app-pane-padding) / 2);
+
+      yuv-icon {
+        width: $app-bar-icon;
+        padding: calc(((var(--app-bar-height) - #{$app-bar-icon}) / 2) - ((var(--app-bar-height) - #{$app-bar-icon}) / 4));
+        height: auto;
+        background-color: transparent;
+      }
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      padding: 0 calc(var(--app-pane-padding) * 0.5);
+      height: calc((var(--app-bar-height) - var(--app-pane-padding)));
+
+      > a > yuv-icon,
+      > yuv-icon {
+        color: var(--text-color-caption);
+        padding: calc(var(--app-pane-padding) / 2);
+
+        &:hover {
+          background-color: rgba(var(--color-accent-rgb), 0.2);
+          color: var(--color-accent);
+        }
+      }
+
+      .app-bar-search {
+        align-self: stretch;
+        display: flex;
+        flex: 1;
+        position: relative;
+        align-items: center;
+        padding: 0 calc(var(--app-pane-padding) / 2);
+
+        yuv-quick-search {
+          border: 1px solid var(--panel-divider-color);
+          position: absolute;
+          top: 0;
+          margin: 2px;
+
+          @media (max-width: 699px) {
+            width: 100%;
+          }
+          @media (min-width: 700px) and (max-width: 1249px) {
+            width: 40vw;
+          }
+          @media (min-width: 1250px) {
+            width: 500px;
+          }
+        }
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      flex: 0 0 auto;
+
+      .offline-icon {
+        background-color: var(--color-accent);
+        border-radius: 50%;
+        color: #fff;
+        width: 18px;
+        height: 18px;
+        padding: 8px;
+        box-sizing: content-box;
+        animation: offlinepulse 2s 3;
+      }
+
+      .user {
+        border-radius: 50%;
+        margin: 0 var(--app-pane-padding);
+        width: $app-bar-icon;
+        height: $app-bar-icon;
+        overflow: hidden;
+        background-color: rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+
+        .overlay {
+          position: absolute;
+          right: 0;
+          top: var(--app-bar-height);
+          width: 180px;
+        }
+      }
+    }
+  }
+
+  .app-content {
+    background-color: var(--main-background);
+    overflow-x: auto;
+    height: 100%;
+    width: 100%;
+    padding-top: var(--app-bar-height);
+    grid-column: 1;
+    grid-row: 1 / span 2;
+  }
+
+  .offline-no-user {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--main-background);
+
+    .box {
+      width: 300px;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+
+      h1 {
+        font-size: var(--font-display);
+        margin: 0 0 calc(var(--app-pane-padding) / 2) 0;
+        font-weight: var(--font-weight-normal);
+      }
+
+      yuv-icon {
+        width: 50%;
+        height: auto;
+        opacity: 0.2;
+        margin: var(--app-pane-padding) 0;
+      }
+    }
+  }
+
+  yuv-sidebar .navigation-list {
+    padding: var(--app-pane-padding) 0;
+
+    .nav-item a {
+      display: block;
+      color: #fff;
+      padding: var(--app-pane-padding);
+      text-decoration: none;
+      user-select: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      transition: background-color 200ms;
+      cursor: pointer;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &.active {
+        pointer-events: none;
+        color: var(--color-accent);
+      }
+    }
+  }
+
+  .user-panel {
+    background-color: var(--color-primary);
+    width: $user-panel-width;
+
+    .avatar {
+      height: $user-panel-width;
+      display: flex;
+      position: relative;
+      background-color: rgba(255, 255, 255, 0.1);
+
+      &.enabled {
+        .user-title {
+          opacity: 1;
+          padding: calc(var(--app-pane-padding) / 2) calc(var(--app-pane-padding) / 2) calc(var(--app-pane-padding) / 2) var(--app-pane-padding);
+
+          > yuv-icon {
+            display: none;
+          }
+        }
+      }
+
+      yuv-user-avatar {
+        flex: 1;
+
+        &.initials ::ng-deep {
+          div {
+            font-size: $user-panel-width * 0.4;
+            text-shadow: 0 0 $user-panel-width * 0.4 rgba(255, 255, 255, 1);
+          }
+        }
+      }
+
+      .user-title {
+        position: absolute;
+        opacity: 0.6;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: calc(var(--app-pane-padding) / 2) calc(var(--app-pane-padding) / 2) calc(var(--app-pane-padding) / 2) 0;
+        color: #fff;
+        display: flex;
+        align-items: center;
+
+        > yuv-icon {
+          margin: 0 calc(var(--app-pane-padding) / 2);
+        }
+
+        > div {
+          display: flex;
+          flex: 1;
+          flex-flow: column;
+          min-height: 0;
+          min-width: 0;
+
+          span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            &.email {
+              opacity: 0.7;
+              margin-top: 4px;
+              font-size: var(--font-hint);
+            }
+          }
+        }
+      }
+    }
+
+    .nav-item a {
+      display: block;
+      color: #fff;
+      padding: calc(var(--app-pane-padding) / 2) var(--app-pane-padding);
+      text-decoration: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  &.transparentAppBar {
+    .app-bar {
+      background-color: transparent;
+      color: var(--theme-transparent-app-bar-color);
+      border-color: transparent;
+
+      .right .user {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+
+      yuv-icon#drawer {
+        border: none;
+      }
+    }
+    .app-content {
+      padding-top: 0;
+    }
+  }
+}
+
+@keyframes offlinepulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 100px rgba(var(--color-accent-rgb), 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(var(--color-accent-rgb), 0);
+  }
+}
+
+.move-notification {
+  padding: var(--app-pane-padding);
+  background: var(--panel-background);
+  color: var(--text-color-body);
+  // border-radius: 2px;
+  &.fail {
+    .header-title {
+      color: var(--color-error);
+    }
+    .list.failed-list {
+      max-height: 100px;
+      overflow: auto;
+      margin-top: calc(var(--app-pane-padding) / 2);
+    }
+  }
+  &.warning {
+    .succededItems .header-title {
+      color: var(--color-success);
+      .bold-text {
+        margin-left: calc(var(--app-pane-padding) / 4);
+        font-size: var(--font-subhead);
+        font-weight: bold;
+      }
+    }
+    .list.succeded-list {
+      margin-bottom: var(--app-pane-padding);
+      max-height: 100px;
+      overflow: auto;
+    }
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    .header-title {
+      display: flex;
+      align-items: center;
+      font-size: var(--font-subhead);
+      margin-right: var(--app-pane-padding);
+
+      .bold-text {
+        margin-left: calc(var(--app-pane-padding) / 4);
+        font-size: var(--font-subhead);
+        font-weight: bold;
+      }
+    }
+  }
+  .list {
+    .entry {
+      margin: calc(var(--app-pane-padding) / 2) 0;
+      display: flex;
+      yuv-object-type-icon {
+        margin-right: calc(var(--app-pane-padding) / 2);
+        color: var(--text-color-caption);
+      }
+      .description {
+        font-size: var(--font-hint);
+        margin-top: 2px;
+      }
+    }
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: var(--app-pane-padding) -2px 0 -2px;
+    .primary {
+      margin-left: calc(var(--app-pane-padding) / 3);
+    }
+  }
+}

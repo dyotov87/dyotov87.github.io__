@@ -1,0 +1,11 @@
+<div class="pre">
+  <yuv-object-type-icon [objectTypeId]="objectTypeId"></yuv-object-type-icon>
+
+  <div class="type">{{objectTypeLabel}}</div>
+</div>
+<div class="main">
+
+  <div class="title">{{title || ' '}}</div>
+  <div class="description">{{description || ' '}}</div>
+  <div class="date">{{date | localeDate: 'eoShortDate'}}</div>
+</div>
