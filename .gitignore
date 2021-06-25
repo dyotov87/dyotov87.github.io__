@@ -1,9 +1,22 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# generated documentation
+/documentation/output
+
+/tools/scripts/common/dist
+
+# cordova
+/cordova/www/*
+/cordova/node_modules
+/cordova/platforms
+/cordova/prepare
+/cordova/plugins
+
 # compiled output
 /dist
 /tmp
 /out-tsc
+
 # Only exists if Bazel was run
 /bazel-out
 
@@ -11,8 +24,8 @@
 /node_modules
 
 # profiling files
-chrome-profiler-events*.json
-speed-measure-plugin*.json
+chrome-profiler-events.json
+speed-measure-plugin.json
 
 # IDEs and editors
 /.idea
@@ -40,6 +53,14 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+
+# e2e tests
+/e2e/cypress/reports/
+/e2e/cypress/screenshots/
+/e2e/cypress/videos/
+/e2e/cypress/node_modules/
+/e2e/cypress/fixtures/de.json
+/e2e/cypress/fixtures/en.json
 
 # System Files
 .DS_Store
